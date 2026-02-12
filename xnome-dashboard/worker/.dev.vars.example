@@ -1,0 +1,7 @@
+APP_ENV=dev
+SUPERADMIN_EMAIL=tank@anome.xyz
+GOOGLE_CLIENT_ID=replace-me
+GOOGLE_CLIENT_SECRET=replace-me
+GOOGLE_REDIRECT_URI=http://127.0.0.1:8787/auth/google/callback
+GOOGLE_ALLOWLIST=tank@anome.xyz,admin@xnome.dev,user@xnome.dev
+JWT_SECRET=replace-me

@@ -1,0 +1,16 @@
+name = "anome-one-dashboard-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "ANOME_DASH_KV"
+id = "e7d952b7f0ae4f6ab8cdb0f150d37108"
+
+[vars]
+APP_ENV = "dev"
+SUPERADMIN_EMAIL = "tank@anome.xyz"
+GOOGLE_CLIENT_ID = "652521587357-cnj2jku2ssf4vq7hf3mcfbol6hmv84fk.apps.googleusercontent.com"
+# GOOGLE_CLIENT_SECRET is set as a Worker secret (wrangler secret put)
+GOOGLE_REDIRECT_URI = "https://anome-one-dashboard-api.tankopenclaw.workers.dev/auth/google/callback"
+GOOGLE_ALLOWLIST = "tank@anome.xyz,admin@xnome.dev,user@xnome.dev"
+# JWT_SECRET is set as a Worker secret (wrangler secret put)

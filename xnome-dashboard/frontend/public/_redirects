@@ -1,0 +1,3 @@
+/api/* https://xnome-dashboard-api.tankopenclaw.workers.dev/api/:splat 200
+/auth/* https://xnome-dashboard-api.tankopenclaw.workers.dev/auth/:splat 200
+/users/* https://xnome-dashboard-api.tankopenclaw.workers.dev/users/:splat 200

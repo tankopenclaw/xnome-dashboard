@@ -1,0 +1,5 @@
+# One project per repo: keep only xnome-dashboard tracked here
+*
+!.gitignore
+!xnome-dashboard/
+!xnome-dashboard/**
