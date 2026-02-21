@@ -91,6 +91,12 @@ async function getCharacterDetails(titles) {
   return details.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+function proxiedImageUrl(url) {
+  if (!url) return 'https://via.placeholder.com/800x600?text=No+Image';
+  const cleaned = url.replace(/^https?:\/\//, '');
+  return `https://images.weserv.nl/?url=${encodeURIComponent(cleaned)}&w=900&output=webp`;
+}
+
 function renderCards(characters) {
   gridEl.innerHTML = '';
 
@@ -110,7 +116,7 @@ function renderCards(characters) {
     const intro = node.querySelector('.intro');
     const source = node.querySelector('.source');
 
-    img.src = c.image;
+    img.src = proxiedImageUrl(c.image);
     img.alt = `${c.name} 图片`;
     name.textContent = c.name;
     intro.textContent = c.intro.slice(0, 180);
