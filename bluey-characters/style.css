@@ -90,8 +90,9 @@ main {
 .avatar {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  object-fit: contain;
   background: #e9eeff;
+  padding: 0.35rem;
 }
 
 .content {
