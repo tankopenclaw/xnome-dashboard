@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>布鲁依（Bluey）人物图鉴</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>布鲁依（Bluey）人物图鉴</h1>
+      <p>自动从 Bluey Wiki 拉取人物列表、图片和简介（按来源可用数据展示）。</p>
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="搜索人物名字..." />
+        <button id="reloadBtn">重新加载</button>
+      </div>
+      <p id="status" class="status">正在加载人物数据...</p>
+    </header>
+
+    <main>
+      <section id="grid" class="card-grid" aria-live="polite"></section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="card">
+        <img class="avatar" alt="" loading="lazy" />
+        <div class="content">
+          <h2 class="name"></h2>
+          <p class="intro"></p>
+          <a class="source" target="_blank" rel="noopener noreferrer">查看来源</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
