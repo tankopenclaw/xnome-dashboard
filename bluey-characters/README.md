@@ -1,6 +1,6 @@
 # 布鲁依人物图鉴网站
 
-一个纯前端静态网站：自动从 Bluey Wiki 获取 `Category:Characters` 下的人物，展示图片和简介。
+一个纯前端静态网站：展示 Bluey 人物图片和简介，数据来自预先抓取好的 `characters.json`（避免线上跨域限制）。
 
 ## 使用
 
