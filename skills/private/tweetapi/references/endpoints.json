@@ -1,0 +1,1280 @@
+{
+  "count": 69,
+  "items": [
+    {
+      "url": "https://www.tweetapi.com/docs/auth/login",
+      "title": "Login - TweetAPI Documentation",
+      "category": "auth",
+      "id": "login",
+      "method": "POST",
+      "path": "/tw-v2/auth/login",
+      "description": "Authenticate a Twitter/X account and retrieve session cookies for use with interaction endpoints. Rate limited to 60 requests per minute.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/details",
+      "title": "Details - TweetAPI Documentation",
+      "category": "community",
+      "id": "details",
+      "method": "GET",
+      "path": "/tw-v2/community/details",
+      "description": "Get detailed information about a specific Twitter community including metadata, member count, and settings.",
+      "parameters": [
+        {
+          "name": "communityId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter community ID"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/members",
+      "title": "Members - TweetAPI Documentation",
+      "category": "community",
+      "id": "members",
+      "method": "GET",
+      "path": "/tw-v2/community/members",
+      "description": "Get a paginated list of members in a Twitter/X community.",
+      "parameters": [
+        {
+          "name": "communityId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter community ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/search",
+      "title": "Search - TweetAPI Documentation",
+      "category": "community",
+      "id": "search",
+      "method": "GET",
+      "path": "/tw-v2/community/search",
+      "description": "Search for Twitter communities by keyword. Returns a list of communities matching the search query with basic information like name, member count, and topic.",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "Search query string to find communities"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/tweets",
+      "title": "Tweets - TweetAPI Documentation",
+      "category": "community",
+      "id": "tweets",
+      "method": "GET",
+      "path": "/tw-v2/community/tweets",
+      "description": "Retrieve tweets from a specific Twitter community. Returns a paginated timeline of community tweets with configurable sorting.",
+      "parameters": [
+        {
+          "name": "communityId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter community ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        },
+        {
+          "name": "sortBy",
+          "type": "string",
+          "required": true,
+          "description": "Sort order for results (Relevance, Recency)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/explore/search",
+      "title": "Search - TweetAPI Documentation",
+      "category": "explore",
+      "id": "search",
+      "method": "GET",
+      "path": "/tw-v2/search",
+      "description": "Search for tweets, users, or other content on Twitter/X. Supports various search operators and filters.",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "Search query string. Supports Twitter search operators."
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": true,
+          "description": "Type of search results (Latest, Top, People, Photos, Videos)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/add-member-to-list",
+      "title": "Add Member To List - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "add-member-to-list",
+      "method": "POST",
+      "path": "/tw-v2/interaction/add-to-list",
+      "description": "Add a user to a Twitter list.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/bookmark",
+      "title": "Bookmark - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "bookmark",
+      "method": "POST",
+      "path": "/tw-v2/interaction/bookmark",
+      "description": "Add a tweet to your bookmarks for later viewing.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/conversation",
+      "title": "Conversation - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "conversation",
+      "method": "GET",
+      "path": "/tw-v2/interaction/conversation",
+      "description": "Get messages from a specific DM conversation. Returns conversation details, messages, and user data. Supports pagination with cursor for loading message history.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "conversationId",
+          "type": "string",
+          "required": true,
+          "description": "Conversation ID. For 1-on-1 conversations: 'userId1-userId2' (e.g., '123456789-987654321'). For group conversations: single conversation ID (e.g., '1234567890')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for loading older messages. Obtained from previous response."
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/create-community-post",
+      "title": "Create Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "create-community-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/create-community-post",
+      "description": "Post a new tweet to a specific Twitter/X community. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/create-community-post-with-media",
+      "title": "Create Post With Media - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "create-community-post-with-media",
+      "method": "POST",
+      "path": "/tw-v2/interaction/create-community-post-with-media",
+      "description": "Post a new tweet with media attachments to a specific Twitter/X community. Supports text content up to 280 characters for non-premium users (or 25,000 for premium users) and up to 4 images or 1 video.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/create-post",
+      "title": "Create Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "create-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/create-post",
+      "description": "Post a new tweet to Twitter/X. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/create-post-quote",
+      "title": "Create Post Quote - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "create-post-quote",
+      "method": "POST",
+      "path": "/tw-v2/interaction/create-post-quote",
+      "description": "Quote tweet another tweet with your own commentary. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/create-post-with-media",
+      "title": "Create Post With Media - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "create-post-with-media",
+      "method": "POST",
+      "path": "/tw-v2/interaction/create-post-with-media",
+      "description": "Post a new tweet with media attachments to Twitter/X. Supports text content up to 280 characters for non-premium users (or 25,000 for premium users) and up to 4 images or 1 video.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/delete-bookmark",
+      "title": "Delete Bookmark - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "delete-bookmark",
+      "method": "POST",
+      "path": "/tw-v2/interaction/delete-bookmark",
+      "description": "Remove a tweet from your bookmarks.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/delete-post",
+      "title": "Delete Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "delete-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/delete-post",
+      "description": "Delete a tweet posted by the authenticated user.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/delete-retweet",
+      "title": "Delete Retweet - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "delete-retweet",
+      "method": "POST",
+      "path": "/tw-v2/interaction/delete-retweet",
+      "description": "Remove a retweet (unretweet) on behalf of an authenticated user. This endpoint allows you to programmatically undo a retweet using the user's authentication token.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/dm-permissions",
+      "title": "DM Permissions - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "dm-permissions",
+      "method": "GET",
+      "path": "/tw-v2/interaction/dm-permissions",
+      "description": "Check if you can send direct messages to specific Twitter users. Verifies DM permissions for up to 50 recipient IDs at once.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "recipientIds",
+          "type": "string",
+          "required": true,
+          "description": "Comma-separated list of user IDs to check (max 50 IDs, e.g., '123456789,987654321')"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/dm-user-updates",
+      "title": "DM User Updates - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "dm-user-updates",
+      "method": "GET",
+      "path": "/tw-v2/interaction/dm-user-updates",
+      "description": "Poll for new DM updates and changes. Use the cursor from inbox-initial-state or previous dm-user-updates response to check for new messages, conversations, and updates. Ideal for real-time DM monitoring.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": true,
+          "description": "Update cursor from inbox-initial-state or previous dm-user-updates response. Required for polling."
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/follow",
+      "title": "Follow - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "follow",
+      "method": "POST",
+      "path": "/tw-v2/interaction/follow",
+      "description": "Follow a Twitter/X user account.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/inbox-initial-state",
+      "title": "Inbox Initial State - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "inbox-initial-state",
+      "method": "GET",
+      "path": "/tw-v2/interaction/inbox-initial-state",
+      "description": "Get the initial state of your Twitter DM inbox. Returns conversations, messages, user data, and inbox timeline cursors for pagination. Use the returned cursor for polling updates via dm-user-updates endpoint.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/inbox-timeline-trusted",
+      "title": "Inbox Trusted - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "inbox-timeline-trusted",
+      "method": "GET",
+      "path": "/tw-v2/interaction/inbox-timeline-trusted",
+      "description": "Get paginated trusted conversations timeline. Use the cursor from inbox-initial-state or previous response to fetch next page of trusted DM conversations.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": true,
+          "description": "Cursor for pagination. Get from inbox-initial-state or previous response."
+        },
+        {
+          "name": "filterLowQuality",
+          "type": "boolean",
+          "required": false,
+          "description": "Filter out low quality conversations (default false)"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/inbox-timeline-untrusted",
+      "title": "Inbox Untrusted - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "inbox-timeline-untrusted",
+      "method": "GET",
+      "path": "/tw-v2/interaction/inbox-timeline-untrusted",
+      "description": "Get paginated untrusted/filtered conversations timeline. Use the cursor from inbox-initial-state or previous response to fetch next page of untrusted DM conversations (message requests).",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": true,
+          "description": "Cursor for pagination. Get from inbox-initial-state or previous response."
+        },
+        {
+          "name": "filterLowQuality",
+          "type": "boolean",
+          "required": false,
+          "description": "Filter out low quality conversations (default false)"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/join-community",
+      "title": "Join - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "join-community",
+      "method": "POST",
+      "path": "/tw-v2/interaction/join-community",
+      "description": "Join a Twitter/X community. Returns community details including name, description, member count, and your role after joining.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/leave-community",
+      "title": "Leave - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "leave-community",
+      "method": "POST",
+      "path": "/tw-v2/interaction/leave-community",
+      "description": "Leave a Twitter/X community. Returns community details including name, description, and member count after leaving.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/favorite-post",
+      "title": "Favorite Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "favorite-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/like-post",
+      "description": "Like a tweet on behalf of an authenticated user.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/notifications",
+      "title": "Notifications - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "notifications",
+      "method": "GET",
+      "path": "/tw-v2/interaction/notifications",
+      "description": "Retrieve the authenticated user's notifications timeline on Twitter/X. Returns notifications including likes, retweets, mentions, and follows.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "timelineType",
+          "type": "string",
+          "required": false,
+          "description": "Type of notifications to retrieve: 'All', 'Verified', or 'Mentions' (default: 'All')"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false,
+          "description": "Number of results to return per page (min: 1, max: 100, default: 20)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/remove-member-from-list",
+      "title": "Remove Member From List - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "remove-member-from-list",
+      "method": "POST",
+      "path": "/tw-v2/interaction/remove-from-list",
+      "description": "Remove a user from a Twitter list.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/reply-community-post",
+      "title": "Reply To Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "reply-community-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/reply-community-post",
+      "description": "Reply to an existing tweet within a Twitter/X community. Creates a reply in the conversation thread with community context. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/community/reply-community-post-with-media",
+      "title": "Reply To Post With Media - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "reply-community-post-with-media",
+      "method": "POST",
+      "path": "/tw-v2/interaction/reply-community-post-with-media",
+      "description": "Reply to an existing tweet within a Twitter/X community with media attachments. Creates a reply in the conversation thread with community context and up to 4 images or 1 video. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/reply-post",
+      "title": "Reply Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "reply-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/reply-post",
+      "description": "Reply to an existing tweet. Creates a tweet in the conversation thread. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/post/reply-post-with-media",
+      "title": "Reply Post With Media - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "reply-post-with-media",
+      "method": "POST",
+      "path": "/tw-v2/interaction/reply-post-with-media",
+      "description": "Reply to an existing tweet with media attachments. Creates a tweet in the conversation thread with up to 4 images or 1 video. Supports text content up to 280 characters for non-premium users, or 25,000 characters for premium users.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/retweet",
+      "title": "Retweet - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "retweet",
+      "method": "POST",
+      "path": "/tw-v2/interaction/retweet",
+      "description": "Retweet a tweet on behalf of an authenticated user. This endpoint allows you to programmatically retweet any public tweet using the user's authentication token.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/unencrypted-dm/send-dm",
+      "title": "Send DM - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "send-dm",
+      "method": "POST",
+      "path": "/tw-v2/interaction/send-dm",
+      "description": "Send a direct message to a Twitter user with optional media attachment. Supports images, GIFs, and videos with automatic type detection and processing. Maximum 1 media item per DM.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/unfollow",
+      "title": "Unfollow - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "unfollow",
+      "method": "POST",
+      "path": "/tw-v2/interaction/unfollow",
+      "description": "Unfollow a Twitter/X user account.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/unfavorite-post",
+      "title": "Unfavorite Post - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "unfavorite-post",
+      "method": "POST",
+      "path": "/tw-v2/interaction/unlike-post",
+      "description": "Unlike a tweet on behalf of an authenticated user.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/interaction/user-analytics",
+      "title": "User Analytics - TweetAPI Documentation",
+      "category": "interaction",
+      "id": "user-analytics",
+      "method": "GET",
+      "path": "/tw-v2/interaction/user-analytics",
+      "description": "Get detailed analytics for a user including engagement rates and growth metrics.",
+      "parameters": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "required": true,
+          "description": "Twitter authentication token (auth_token cookie value)"
+        },
+        {
+          "name": "toTime",
+          "type": "string",
+          "required": false,
+          "description": "End time for analytics period in ISO 8601 format (default: current time)"
+        },
+        {
+          "name": "fromTime",
+          "type": "string",
+          "required": false,
+          "description": "Start time for analytics period in ISO 8601 format (default: 30 days ago)"
+        },
+        {
+          "name": "granularity",
+          "type": "string",
+          "required": false,
+          "description": "Time granularity for metrics: Daily, Weekly, or Monthly (default: Daily)"
+        },
+        {
+          "name": "showVerifiedFollowers",
+          "type": "boolean",
+          "required": false,
+          "description": "Include verified follower metrics (default: true)"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "required": false,
+          "description": "Optional proxy in format 'host:port@user:pass'"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/list/details",
+      "title": "Details - TweetAPI Documentation",
+      "category": "list",
+      "id": "details",
+      "method": "GET",
+      "path": "/tw-v2/list/details",
+      "description": "Get detailed information about a specific Twitter list including metadata, member count, and configuration settings.",
+      "parameters": [
+        {
+          "name": "listId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter list ID"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/list/followers",
+      "title": "Followers - TweetAPI Documentation",
+      "category": "list",
+      "id": "followers",
+      "method": "GET",
+      "path": "/tw-v2/list/followers",
+      "description": "Get a paginated list of users following a specific Twitter list. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "listId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter list ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/list/members",
+      "title": "Members - TweetAPI Documentation",
+      "category": "list",
+      "id": "members",
+      "method": "GET",
+      "path": "/tw-v2/list/members",
+      "description": "Get a paginated list of members in a Twitter/X list.",
+      "parameters": [
+        {
+          "name": "listId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter list ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/list/tweets",
+      "title": "Tweets - TweetAPI Documentation",
+      "category": "list",
+      "id": "tweets",
+      "method": "GET",
+      "path": "/tw-v2/list/tweets",
+      "description": "Retrieve tweets from a specific Twitter list. Returns a paginated timeline of tweets posted by list members.",
+      "parameters": [
+        {
+          "name": "listId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter list ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/space/by-id",
+      "title": "By ID - TweetAPI Documentation",
+      "category": "space",
+      "id": "by-id",
+      "method": "GET",
+      "path": "/tw-v2/space/by-id",
+      "description": "Retrieve detailed information about a Twitter Space (audio room) by its ID. Returns comprehensive data including title, state, creator, participants, topics, and engagement stats.",
+      "parameters": [
+        {
+          "name": "spaceId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Space ID (e.g., '1MnxnPmLRQBGO')"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/space/stream-url",
+      "title": "Stream URL - TweetAPI Documentation",
+      "category": "space",
+      "id": "stream-url",
+      "method": "GET",
+      "path": "/tw-v2/space/stream-url",
+      "description": "Get the audio stream URL for a Twitter Space. Returns an HLS stream URL that can be used to listen to the Space audio. The mediaKey can be obtained from the Space details endpoint.",
+      "parameters": [
+        {
+          "name": "mediaKey",
+          "type": "string",
+          "required": true,
+          "description": "Media key of the Space (obtained from the space by-id endpoint's mediaKey field)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/tweet/details--conversation",
+      "title": "Details &amp; Conversation - TweetAPI Documentation",
+      "category": "tweet",
+      "id": "details--conversation",
+      "method": "GET",
+      "path": "/tw-v2/tweet/details",
+      "description": "Get detailed information about a specific tweet including full metadata, engagement metrics, and conversation context.",
+      "parameters": [
+        {
+          "name": "tweetId",
+          "type": "string",
+          "required": true,
+          "description": "Unique tweet/post ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        },
+        {
+          "name": "sortBy",
+          "type": "string",
+          "required": false,
+          "description": "Sort order for conversation replies (Relevance, Recency, Likes). Default: Relevance"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/tweet/details-by-ids",
+      "title": "Details By IDs - TweetAPI Documentation",
+      "category": "tweet",
+      "id": "details-by-ids",
+      "method": "GET",
+      "path": "/tw-v2/tweet/details-by-ids",
+      "description": "Retrieve detailed information for multiple tweets in a single request. Returns comprehensive tweet data including author information, engagement metrics, media attachments, and metadata for up to 200 tweets at once.",
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "string",
+          "required": true,
+          "description": "Comma-separated list of tweet IDs to retrieve (maximum 200 IDs per request)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/tweet/quotes",
+      "title": "Quotes - TweetAPI Documentation",
+      "category": "tweet",
+      "id": "quotes",
+      "method": "GET",
+      "path": "/tw-v2/tweet/quotes",
+      "description": "Retrieve quote tweets for a specific tweet. Returns tweets that quote the original tweet with additional commentary.",
+      "parameters": [
+        {
+          "name": "tweetId",
+          "type": "string",
+          "required": true,
+          "description": "Unique tweet/post ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/tweet/retweets",
+      "title": "Retweets - TweetAPI Documentation",
+      "category": "tweet",
+      "id": "retweets",
+      "method": "GET",
+      "path": "/tw-v2/tweet/retweets",
+      "description": "Retrieve users who retweeted a specific tweet. Returns a paginated list of retweets with user information.",
+      "parameters": [
+        {
+          "name": "tweetId",
+          "type": "string",
+          "required": true,
+          "description": "Unique tweet/post ID"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/tweet/translate",
+      "title": "Translate - TweetAPI Documentation",
+      "category": "tweet",
+      "id": "translate",
+      "method": "POST",
+      "path": "/tw-v2/tweet/translate",
+      "description": "Translate tweet text to a target language using Twitter's translation service.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/about-account",
+      "title": "About Account - TweetAPI Documentation",
+      "category": "user",
+      "id": "about-account",
+      "method": "GET",
+      "path": "/tw-v2/user/about-account",
+      "description": "Retrieve detailed account information for a Twitter/X user including location, verification details, username history, affiliate relationships, and account creation source.",
+      "parameters": [
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "Twitter/X username without @ symbol (e.g., 'elonmusk')"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/by-user-id",
+      "title": "By User ID - TweetAPI Documentation",
+      "category": "user",
+      "id": "by-user-id",
+      "method": "GET",
+      "path": "/tw-v2/user/by-id",
+      "description": "Retrieve comprehensive user profile information using a Twitter/X user ID. Returns detailed user data including statistics, verification status, and profile metadata.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/by-user-ids",
+      "title": "By User IDs - TweetAPI Documentation",
+      "category": "user",
+      "id": "by-user-ids",
+      "method": "GET",
+      "path": "/tw-v2/user/by-ids",
+      "description": "Retrieve comprehensive user profile information using a Twitter/X user ID. Returns detailed user data including statistics, verification status, and profile metadata.",
+      "parameters": [
+        {
+          "name": "userIds",
+          "type": "string",
+          "required": true,
+          "description": "Array of Twitter/X user IDs to retrieve"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/by-username",
+      "title": "By Username - TweetAPI Documentation",
+      "category": "user",
+      "id": "by-username",
+      "method": "GET",
+      "path": "/tw-v2/user/by-username",
+      "description": "Retrieve comprehensive user profile information using a Twitter/X username. Returns detailed user data including statistics, verification status, and profile metadata.",
+      "parameters": [
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "Twitter/X username without @ symbol (e.g., 'elonmusk')"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/by-usernames",
+      "title": "By Usernames - TweetAPI Documentation",
+      "category": "user",
+      "id": "by-usernames",
+      "method": "GET",
+      "path": "/tw-v2/user/by-usernames",
+      "description": "Retrieve comprehensive user profile information for multiple users in a single request using their Twitter/X usernames. Returns detailed user data including statistics, verification status, and profile metadata for up to 200 users at once.",
+      "parameters": [
+        {
+          "name": "usernames",
+          "type": "string",
+          "required": true,
+          "description": "Comma-separated list of Twitter/X usernames without @ symbol (maximum 200 usernames per request). The @ symbol is automatically stripped if provided."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/followers-v2",
+      "title": "Followers - TweetAPI Documentation",
+      "category": "user",
+      "id": "followers-v2",
+      "method": "GET",
+      "path": "/tw-v2/user/followers",
+      "description": "Get a paginated list of users following the specified account. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/followers-ids",
+      "title": "Followers IDs - TweetAPI Documentation",
+      "category": "user",
+      "id": "followers-ids",
+      "method": "GET",
+      "path": "/tw-v2/user/followers-ids",
+      "description": "Get a paginated list of users following the specified account. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": false,
+          "description": "Number of results to return per page (max: 100, default: 20)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/followers-v1",
+      "title": "Followers (v1) - TweetAPI Documentation",
+      "category": "user",
+      "id": "followers-v1",
+      "method": "GET",
+      "path": "/tw-v2/user/followers-list",
+      "description": "Get a paginated list of users following the specified account. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": false,
+          "description": "Number of results to return per page (max: 100, default: 20)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/following-v2",
+      "title": "Following - TweetAPI Documentation",
+      "category": "user",
+      "id": "following-v2",
+      "method": "GET",
+      "path": "/tw-v2/user/following",
+      "description": "Get a paginated list of users that the specified account is following. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/following-ids",
+      "title": "Following IDs - TweetAPI Documentation",
+      "category": "user",
+      "id": "following-ids",
+      "method": "GET",
+      "path": "/tw-v2/user/following-ids",
+      "description": "Get a paginated list of users that the specified account is following. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": false,
+          "description": "Number of results to return per page (max: 100, default: 20)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/following-v1",
+      "title": "Following (v1) - TweetAPI Documentation",
+      "category": "user",
+      "id": "following-v1",
+      "method": "GET",
+      "path": "/tw-v2/user/following-list",
+      "description": "Get a paginated list of users that the specified account is following. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": false,
+          "description": "Number of results to return per page (max: 100, default: 20)"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/check-follow",
+      "title": "Check Follow - TweetAPI Documentation",
+      "category": "user",
+      "id": "check-follow",
+      "method": "GET",
+      "path": "/tw-v2/user/friendship",
+      "description": "Check if a follow relationship exists between two Twitter/X users.",
+      "parameters": [
+        {
+          "name": "subjectId",
+          "type": "string",
+          "required": true,
+          "description": "The user ID of the subject user (the follower)"
+        },
+        {
+          "name": "targetId",
+          "type": "string",
+          "required": true,
+          "description": "The user ID of the target user (the one being followed)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/subscriptions",
+      "title": "Subscriptions - TweetAPI Documentation",
+      "category": "user",
+      "id": "subscriptions",
+      "method": "GET",
+      "path": "/tw-v2/user/subscriptions",
+      "description": "Get a list of accounts that the user has subscribed to. Includes Twitter Blue subscribers and Super Followers.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/tweets",
+      "title": "Tweets - TweetAPI Documentation",
+      "category": "user",
+      "id": "tweets",
+      "method": "GET",
+      "path": "/tw-v2/user/tweets",
+      "description": "Retrieve tweets posted by a specific user. Returns a paginated timeline of original tweets (no replies).",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/tweets-and-replies",
+      "title": "Tweets &amp; Replies - TweetAPI Documentation",
+      "category": "user",
+      "id": "tweets-and-replies",
+      "method": "GET",
+      "path": "/tw-v2/user/tweets-and-replies",
+      "description": "Retrieve tweets and replies posted by a specific user. Returns a paginated timeline including both original tweets and replies.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/user/verified-followers",
+      "title": "Verified Followers - TweetAPI Documentation",
+      "category": "user",
+      "id": "verified-followers",
+      "method": "GET",
+      "path": "/tw-v2/user/verified-followers",
+      "description": "Get a paginated list of users following the specified account. Returns user objects with complete profile information.",
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string",
+          "required": true,
+          "description": "Unique Twitter/X user ID (e.g., '44196397')"
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "required": false,
+          "description": "Pagination cursor for fetching next page of results. Obtained from previous response."
+        }
+      ]
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/xchat/can-dm",
+      "title": "Check Can DM - TweetAPI Documentation",
+      "category": "xchat",
+      "id": "can-dm",
+      "method": "POST",
+      "path": "/tw-v2/xchat/can-dm",
+      "description": "Check if users can receive X Chat encrypted DMs. Returns chat permissions including whether they have X Chat enabled and a public key for encryption. Use this endpoint to verify recipients before attempting to send encrypted messages.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/xchat/conversations",
+      "title": "List Conversations - TweetAPI Documentation",
+      "category": "xchat",
+      "id": "conversations",
+      "method": "POST",
+      "path": "/tw-v2/xchat/conversations",
+      "description": "Get a list of all X Chat conversations in your inbox. Returns conversation metadata including participants and timestamps. This endpoint does not require /xchat/setup since it only returns metadata, not decrypted message content.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/xchat/history",
+      "title": "Conversation History - TweetAPI Documentation",
+      "category": "xchat",
+      "id": "history",
+      "method": "POST",
+      "path": "/tw-v2/xchat/history",
+      "description": "Get decrypted conversation history for an end-to-end encrypted X Chat conversation. Returns messages in decrypted plaintext with metadata. Prerequisite - You must call /xchat/setup first before fetching history.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/xchat/send",
+      "title": "Send Message - TweetAPI Documentation",
+      "category": "xchat",
+      "id": "send",
+      "method": "POST",
+      "path": "/tw-v2/xchat/send",
+      "description": "Send an end-to-end encrypted direct message via X Chat. Prerequisite - You must call /xchat/setup first before sending messages.",
+      "parameters": []
+    },
+    {
+      "url": "https://www.tweetapi.com/docs/xchat/setup",
+      "title": "Setup - TweetAPI Documentation",
+      "category": "xchat",
+      "id": "setup",
+      "method": "POST",
+      "path": "/tw-v2/xchat/setup",
+      "description": "Initialize X Chat (encrypted DMs) for your account. This is a required first step before sending encrypted messages. You must have X Chat already set up in the official X app before using this endpoint.",
+      "parameters": []
+    }
+  ],
+  "failed": [
+    [
+      "https://www.tweetapi.com/docs/getting-started/overview",
+      "no_spec"
+    ]
+  ]
+}
