@@ -66,6 +66,13 @@ def get_json(path: str, headers: Dict[str, str], params: Dict[str, str]) -> Dict
     return r.json()
 
 
+def safe_get_json(path: str, headers: Dict[str, str], params: Dict[str, str]) -> Dict[str, Any]:
+    try:
+        return get_json(path, headers, params)
+    except Exception:
+        return {}
+
+
 def as_list(payload: Any) -> List[Dict[str, Any]]:
     if isinstance(payload, list):
         return [x for x in payload if isinstance(x, dict)]
@@ -93,7 +100,7 @@ def run_once() -> List[str]:
     alerts: List[str] = []
 
     # 1) tankxu latest tweets
-    tweets_payload = get_json("/tw-v2/user/tweets", headers, {"userId": TANKXU_USER_ID})
+    tweets_payload = safe_get_json("/tw-v2/user/tweets", headers, {"userId": TANKXU_USER_ID})
     tweets = as_list(tweets_payload)
 
     if tweets:
@@ -126,7 +133,7 @@ def run_once() -> List[str]:
             state["processedTweetIds"].append(tid)
 
     # 2) mentions from tankxu to 0xTClaw
-    mention_payload = get_json("/tw-v2/search", headers, {"query": MENTION_QUERY, "type": "Latest"})
+    mention_payload = safe_get_json("/tw-v2/explore/search", headers, {"query": MENTION_QUERY, "type": "Latest"})
     mentions = as_list(mention_payload)
 
     if mentions:
