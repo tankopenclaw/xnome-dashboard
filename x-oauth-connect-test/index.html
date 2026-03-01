@@ -145,7 +145,7 @@
           <li><strong>Deep Link</strong>：形如 <code>x://...</code>，是自定义协议，目标是直接拉起 App；但在 Telegram/部分浏览器中容易被拦截，未安装 App 时也可能直接失败。</li>
           <li><strong>Universal Link</strong>：形如 <code>https://x.com/...</code>，是标准网页链接；系统会根据已安装 App 和设置决定是否打开 X App，没装 App 也能正常回退网页。</li>
           <li><strong>为什么 OAuth 不容易跳 App</strong>：X 的 OAuth 授权入口通常走 Web 安全流程，不保证自动唤起 X App，这在系统浏览器里也很常见。</li>
-          <li><strong>实战建议</strong>：生产环境优先使用 Web OAuth 作为主流程，必要时辅以 Universal Link 引导，避免把授权成功建立在 Deep Link 是否被放行上。</li>
+          <li><strong>建议</strong>：把 OAuth 当作网页授权流程来设计，不要依赖“自动跳 X App”作为成功前提。</li>
         </ul>
       </div>
     </div>
