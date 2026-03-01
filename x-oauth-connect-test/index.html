@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>X Connect 按钮测试</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1115;
+        --card: #171a21;
+        --text: #f5f7ff;
+        --muted: #a9b1c6;
+        --primary: #1d9bf0;
+        --border: #2a3140;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f3f6fb;
+          --card: #ffffff;
+          --text: #111827;
+          --muted: #4b5563;
+          --primary: #0f70d7;
+          --border: #dbe2ef;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.45;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 28px auto;
+        padding: 0 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 18px;
+        margin-bottom: 14px;
+      }
+      h1 { margin: 0 0 8px; font-size: 1.35rem; }
+      p { margin: 6px 0; color: var(--muted); }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+      }
+      a.btn {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        background: #000;
+        border-radius: 999px;
+        padding: 12px 14px;
+        text-align: center;
+        font-weight: 700;
+        border: 1px solid #111;
+      }
+      a.btn:hover { filter: brightness(1.1); }
+      a.btn.alt { background: var(--primary); border-color: transparent; }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      .item-title { font-weight: 700; margin-bottom: 6px; }
+      .small { font-size: 0.85rem; color: var(--muted); }
+      .warn {
+        border-left: 3px solid #f59e0b;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>X Connect 按钮测试页</h1>
+        <p>目标：在手机浏览器打开本页，点击不同按钮，观察是否会拉起 X App。</p>
+        <p class="small warn">注：OAuth URL 里有些参数是占位符（例如 CLIENT_ID / REDIRECT_URI），你替换后才会真正授权成功。</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="item-title">1) OAuth 2.0 Authorization Code + PKCE</div>
+          <a class="btn" href="https://x.com/i/oauth2/authorize?response_type=code&client_id=REPLACE_WITH_CLIENT_ID&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=tweet.read%20users.read%20offline.access&state=test_state_123&code_challenge=replace_with_code_challenge&code_challenge_method=S256" target="_blank" rel="noopener">Connect to X (OAuth2 PKCE)</a>
+          <p class="small">URL:</p>
+          <code>https://x.com/i/oauth2/authorize?... </code>
+        </div>
+
+        <div class="card">
+          <div class="item-title">2) OAuth 1.0a authenticate（常见“登录 X”）</div>
+          <a class="btn alt" href="https://api.x.com/oauth/authenticate?oauth_token=REPLACE_WITH_REQUEST_TOKEN" target="_blank" rel="noopener">Connect to X (OAuth1 authenticate)</a>
+          <p class="small">需要你服务端先拿 request token。</p>
+          <code>https://api.x.com/oauth/authenticate?oauth_token=...</code>
+        </div>
+
+        <div class="card">
+          <div class="item-title">3) OAuth 1.0a authorize（显式授权）</div>
+          <a class="btn alt" href="https://api.x.com/oauth/authorize?oauth_token=REPLACE_WITH_REQUEST_TOKEN" target="_blank" rel="noopener">Connect to X (OAuth1 authorize)</a>
+          <p class="small">和 authenticate 类似，但流程表现略有不同。</p>
+          <code>https://api.x.com/oauth/authorize?oauth_token=...</code>
+        </div>
+
+        <div class="card">
+          <div class="item-title">4) Universal Link（可能跳 App）</div>
+          <a class="btn" href="https://x.com/TwitterDev" target="_blank" rel="noopener">Open X Profile Link</a>
+          <p class="small">部分手机会根据系统设置直接拉起 X。</p>
+          <code>https://x.com/&lt;username&gt;</code>
+        </div>
+
+        <div class="card">
+          <div class="item-title">5) Deep Link Scheme（强制尝试拉起 App）</div>
+          <a id="deep-link-btn" class="btn" href="x://user?screen_name=TwitterDev">Open X App via x://</a>
+          <p class="small">若设备未识别 <code>x://</code>，会失败。</p>
+          <code>x://user?screen_name=TwitterDev</code>
+        </div>
+
+        <div class="card">
+          <div class="item-title">6) JS 尝试拉起 x:// + 回退网页</div>
+          <a id="js-open-btn" class="btn alt" href="#">Connect via JS Deep Link</a>
+          <p class="small">先尝试 <code>x://</code>，1.2 秒后回退到 <code>https://x.com</code>。</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const jsOpenBtn = document.getElementById('js-open-btn');
+      jsOpenBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const start = Date.now();
+        window.location.href = 'x://user?screen_name=TwitterDev';
+        setTimeout(() => {
+          if (Date.now() - start < 1700) {
+            window.location.href = 'https://x.com/TwitterDev';
+          }
+        }, 1200);
+      });
+    </script>
+  </body>
+</html>
