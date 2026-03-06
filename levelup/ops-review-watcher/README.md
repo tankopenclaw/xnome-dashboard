@@ -10,29 +10,16 @@
 
 - `task_reviews`：单个 task 的人工审核（可通过 `TASK_PENDING_SQL` 注入查询）
 
-## 特性
+## 配置方式
 
-- 支持多个任务组（`GROUP_IDS=1,2,3`）
-- 也支持单个任务组（`GROUP_IDS=12`）
-- 增量检查（按 `source + groupId` 维度记录 `lastSeenId`）
-- 首次运行自动基线，不推历史
-
-## 配置
-
-```bash
-cp .env.example .env
-```
-
-必填：
-- `DATABASE_URL`
-- `LARK_WEBHOOK_URL`
-
-常用：
-- `POLL_INTERVAL_MINUTES=10`
-- `GROUP_IDS=1,2,3`
-- `REVIEW_SOURCES=reward_claims,task_reviews`
-- `TASK_REVIEW_ENABLED=true`（当后端/表准备好再开）
-- `TASK_PENDING_SQL=...`（未来 task 审核自定义查询）
+- `.env`：只放敏感信息
+  - `DATABASE_URL`
+  - `LARK_WEBHOOK_URL`
+- `src/config.js`：放业务配置
+  - 轮询间隔
+  - group ids
+  - sources
+  - task review 预留配置
 
 ## 启动
 

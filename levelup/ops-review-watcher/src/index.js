@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import process from 'node:process'
 import dotenv from 'dotenv'
 import pg from 'pg'
+import { config } from './config.js'
 
 dotenv.config()
 
@@ -14,29 +15,22 @@ const rootDir = path.resolve(__dirname, '..')
 
 const DATABASE_URL = process.env.DATABASE_URL
 const LARK_WEBHOOK_URL = process.env.LARK_WEBHOOK_URL
-const POLL_INTERVAL_MINUTES = Number(process.env.POLL_INTERVAL_MINUTES || 10)
-const STATE_FILE = path.resolve(rootDir, process.env.STATE_FILE || './state.json')
-const GROUP_IDS = (process.env.GROUP_IDS || '')
-  .split(',')
-  .map((s) => s.trim())
-  .filter(Boolean)
-  .map((s) => Number(s))
-  .filter(Number.isFinite)
 
-const REVIEW_SOURCES = (process.env.REVIEW_SOURCES || 'reward_claims')
-  .split(',')
-  .map((s) => s.trim())
-  .filter(Boolean)
-
-const TASK_REVIEW_ENABLED = String(process.env.TASK_REVIEW_ENABLED || 'false').toLowerCase() === 'true'
-const TASK_PENDING_SQL = (process.env.TASK_PENDING_SQL || '').trim()
+const POLL_INTERVAL_MINUTES = Number(config.pollIntervalMinutes || 10)
+const STATE_FILE = path.resolve(rootDir, config.stateFile || './state.json')
+const GROUP_IDS = Array.isArray(config.groupIds)
+  ? config.groupIds.map((x) => Number(x)).filter(Number.isFinite)
+  : []
+const REVIEW_SOURCES = Array.isArray(config.reviewSources) ? config.reviewSources : ['reward_claims']
+const TASK_REVIEW_ENABLED = Boolean(config.taskReviewEnabled)
+const TASK_PENDING_SQL = String(config.taskPendingSql || '').trim()
 
 if (!DATABASE_URL) {
-  console.error('[fatal] DATABASE_URL is required')
+  console.error('[fatal] DATABASE_URL is required in .env')
   process.exit(1)
 }
 if (!LARK_WEBHOOK_URL) {
-  console.error('[fatal] LARK_WEBHOOK_URL is required')
+  console.error('[fatal] LARK_WEBHOOK_URL is required in .env')
   process.exit(1)
 }
 
