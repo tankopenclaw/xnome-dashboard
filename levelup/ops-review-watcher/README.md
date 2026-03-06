@@ -15,7 +15,7 @@
 - `.env`：只放敏感信息
   - `DATABASE_URL`
   - `LARK_WEBHOOK_URL`
-- `src/config.js`：放业务配置
+- `config.js`：放业务配置
   - 轮询间隔
   - group ids
   - sources

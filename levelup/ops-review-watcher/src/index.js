@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import process from 'node:process'
 import dotenv from 'dotenv'
 import pg from 'pg'
-import { config } from './config.js'
+import { config } from '../config.js'
 
 dotenv.config()
 
